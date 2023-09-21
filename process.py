@@ -6,6 +6,12 @@ from funciones import filtro_ascesor,link_multimedia,cambiar_remitente
 
 
 def preproces(df):
+    """ 
+    Funcion que preprocesa el archivo para analizarlo. Asi como quitar palabras que confunden al analyzer, 
+    y analizar simplemente los mensajes de los clientes.
+    Parametros: - df : DataFrame con los datos a analizar
+    Return: - df : DataFrame con los datos preprocesados
+    """
     try:
         df = filtro_ascesor(df)
         df = link_multimedia(df)
@@ -54,6 +60,11 @@ def preproces(df):
 
 
 def analisis(df):
+    """ 
+    Funcion que analiza el DataFrame con el Analyzer.
+    Parametros: - df : Dataframe con los datos preprocesados.
+    Return: - df : Dataframe con cuatro columnas nuevas representando el analisis de los mensajes
+    """
     try:
         print("Arranca Sentiment Analisis!")
 
@@ -93,6 +104,11 @@ def analisis(df):
 
 
 def guardar_historico(df):
+    """  
+    Funcion que intenta guardar el DataFrame ya analizado.
+    Parametros: - df : Dataframe con los mensajes analizados.
+    Return: --void--
+    """
     try:
         df_historico = pd.read_excel("O:\\Gestion y Experiencia del Cliente\\5. SERVICIO DE ATENCIÓN AL CLIENTE\\11. TRANSFORMACIÓN DIGITAL\\ReporteWpp\\Datos\\Historico.xlsx")
         historico = True
