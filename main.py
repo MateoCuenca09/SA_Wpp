@@ -4,6 +4,12 @@ from process import preproces, analisis, guardar_historico
 
 
 def main(carpeta,archivo):
+    """
+    Funcion principal que maneja el flujo del programa. Se encarga tambien de mover el archivo analizado a otra carpeta.
+    Parametros: --void--
+    Return: --void--
+            - Guarda un archivo .xlsx en la carpeta Datos
+    """
     # Leo Archivo!
     archivo_completo = os.path.join(carpeta,archivo)
     df_crudo = pd.read_excel(archivo_completo)
