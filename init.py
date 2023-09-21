@@ -1,8 +1,11 @@
 import os
 import time
 from main import main
-#O:\Gestion y Experiencia del Cliente\5. SERVICIO DE ATENCIÓN AL CLIENTE\11. TRANSFORMACIÓN DIGITAL\ReporteWpp
+""" 
+init.py: Es archivo que inicializa el programa cada vez que detecta un nuevo archivo en la "carpeta"
+"""
 
+#O:\Gestion y Experiencia del Cliente\5. SERVICIO DE ATENCIÓN AL CLIENTE\11. TRANSFORMACIÓN DIGITAL\ReporteWpp
 
 os.chdir(r'O:\\Gestion y Experiencia del Cliente\\5. SERVICIO DE ATENCIÓN AL CLIENTE\\11. TRANSFORMACIÓN DIGITAL\\ReporteWpp')
 carpeta = os.path.join('EntradaDatos')  # Ruta de la carpeta a monitorear
