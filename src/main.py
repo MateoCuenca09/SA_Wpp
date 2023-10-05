@@ -1,37 +1,40 @@
-import pandas as pd
 import os
-from process import preproces, analisis, guardar_historico
+import time
+from sentiment import main
+""" 
+init.py: Es archivo que inicializa el programa cada vez que detecta un nuevo archivo en la "carpeta"
+"""
 
+#O:\Gestion y Experiencia del Cliente\5. SERVICIO DE ATENCIÓN AL CLIENTE\11. TRANSFORMACIÓN DIGITAL\ReporteWpp
 
-def main(carpeta,archivo):
-    """
-    Funcion principal que maneja el flujo del programa. Se encarga tambien de mover el archivo analizado a otra carpeta.
-    Parametros: --void--
-    Return: --void--
-            - Guarda un archivo .xlsx en la carpeta Datos
-    """
-    # Leo Archivo!
-    archivo_completo = os.path.join(carpeta,archivo)
-    df_crudo = pd.read_excel(archivo_completo)
+os.chdir(r'O:\\Gestion y Experiencia del Cliente\\5. SERVICIO DE ATENCIÓN AL CLIENTE\\11. TRANSFORMACIÓN DIGITAL\\ReporteWpp')
+carpeta = os.path.join('EntradaDatos')  # Ruta de la carpeta a monitorear
+extension = '.xlsx'  # Extensión del archivo a detectar
 
-    # Filtro DF y separo en Clientes y Agentes
-    df = preproces(df_crudo)
+archivos_previos = set()  # Conjunto de archivos previamente encontrados
 
-    # Analizo DF Clientes y puntuo mensajes
-    df_analizado = analisis(df['Clientes'])
+while True:
+    archivos_actuales = set()
+    # Obtener la lista de archivos en la carpeta
+    for archivo in os.listdir(carpeta):
+        if archivo.endswith(extension):
+            archivos_actuales.add(archivo)
 
+    # Obtener los nuevos archivos encontrados
+    nuevos_archivos = archivos_actuales - archivos_previos
 
-    # Generamos DF con todos los datos
-    df_completo = pd.merge(df_analizado, df['Agentes'],how='outer')
+    # Ejecutar el programa para cada nuevo archivo
+    for archivo in nuevos_archivos:
+        try:
+            print(archivo)
+            main(carpeta,archivo)
+            print("Archivo procesado: ",archivo)
+        except Exception as e:
+            print("Error al iniciar programa: ", e)
 
-    #guardar(df_completo)
+    # Actualizar los archivos previamente encontrados
+    archivos_previos = archivos_actuales
 
-    guardar_historico(df_completo)
+    # Esperar un tiempo antes de la siguiente verificación
+    time.sleep(1)
 
-    carpeta = carpeta + "\\Procesados"
-    archivo_completo = os.path.join(carpeta,archivo)
-    try:
-        df_crudo.to_excel(archivo_completo, index=False)
-    except Exception:
-        archivo = "COPIA" + archivo
-        df_crudo.to_excel(archivo_completo, index=False)
