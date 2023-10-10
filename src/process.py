@@ -20,7 +20,7 @@ def preproces(df):
         df_filtro1 = df.loc[df['Remitente'] != 'ChatBot']
 
         #Escribir nuevo excel con cliente fecha mensaje
-        columnas = ['Fecha Hora','ID Contacto','Remitente','Tipo','Mensaje']
+        columnas = ['ID Mensaje','Fecha Hora','ID Contacto','Remitente','Tipo','Mensaje']
         df = df_filtro1[columnas]
         df_clientes = df.loc[df['Tipo'] == 'INBOUND']
         df_agentes = df.loc[df['Tipo'] != 'INBOUND']
@@ -96,7 +96,7 @@ def analisis(df):
         df['NEG'] = neg
         df['NEU'] = neu
         df['POS'] = pos
-        print("Termina Sentiment Analis")
+        print("Termina Sentiment Analisis!")
         return df
 
     except Exception as e:

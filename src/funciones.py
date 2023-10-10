@@ -24,7 +24,7 @@ def link_multimedia(df):
     """
     try:
         # Verificar si hay valores en la columna "Attachment"
-        df['Mensaje'] = df.apply(lambda row: row['Attachment'] if pd.notnull(row['Attachment']) else row['Mensaje'], axis=1)
+        df.loc[df['Attachment'].notnull(), 'Mensaje'] = df['Attachment']
         
         # Eliminar la columna "Attachment" si se desea
         # del df['Attachment']
