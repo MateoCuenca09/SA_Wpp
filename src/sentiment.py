@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from process import preproces, analisis, guardar_historico
-from MIfileHandling import guardar
+from fileHandling import guardar, move_file
 
 
 def mainSent(carpeta,archivo):
@@ -25,6 +25,9 @@ def mainSent(carpeta,archivo):
     # Generamos DF con todos los datos
     df_completo = pd.merge(df_analizado, df['Agentes'],how='outer')
 
+    # Guardamos el Archivo
     guardar(df_completo)
 
+    # Movemos de Carpeta el ya analizado
+    move_file(archivo_completo)
     

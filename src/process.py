@@ -1,5 +1,4 @@
 import pandas as pd
-import os
 from pysentimiento import create_analyzer
 from funciones import filtro_ascesor,link_multimedia,cambiar_remitente
 

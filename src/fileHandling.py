@@ -1,13 +1,15 @@
 import pandas as pd
+import shutil
 
 # Carpeta Recibidora de Archivos
-carpeta = 'O:\Gestion y Experiencia del Cliente\5. SERVICIO DE ATENCIÓN AL CLIENTE\11. TRANSFORMACIÓN DIGITAL\ReportesSentiment/Entrada Datos'
+carpeta = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Entrada Datos'
+carpeta_analizados = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Entrada Datos/Procesados' 
 
 # Archivo Activo de PowerBi
-activo_path = 'C:/Users/cuenc/OneDrive - EDISUR SA/Mateo Cuenca/SA_Wpp/.ignore/Datos Procesados/Activo.xlsx'
+activo_path = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Datos/Activo.xlsx'
 # Archivo Temp y Carpeta
-temp_path = "C:/Users/cuenc/OneDrive - EDISUR SA/Mateo Cuenca/SA_Wpp/.ignore/Datos Procesados/Temp.xlsx"
-folder_temp_path = 'C:/Users/cuenc/OneDrive - EDISUR SA/Mateo Cuenca/SA_Wpp/.ignore/Datos Procesados/'
+temp_path = "O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Datos/Temp.xlsx"
+folder_temp_path = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Datos/'
 
 def guardar(df):
     try:
@@ -66,3 +68,14 @@ def separar_por_mes():
 
     except Exception as e:
         print("Error separar_por_mes(): ", e) 
+
+def move_file(archivo_a_mover):
+    try:
+        shutil.move(archivo_a_mover, carpeta_analizados)
+        print("Archivo movido con EXITO!")
+    except Exception as e:
+        print("1er Error move_file(): ", e)
+        try:
+            shutil.move("Copia" + archivo_a_mover, carpeta_analizados)
+        except Exception as e2:
+            print("2do Error move_file(): ", e2)

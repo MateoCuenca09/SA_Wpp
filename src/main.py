@@ -1,7 +1,7 @@
 import os
 import time
 from sentiment import mainSent
-from MIfileHandling import carpeta
+from fileHandling import carpeta
 from datetime import datetime, timedelta
 
 """ 
