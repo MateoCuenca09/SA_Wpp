@@ -1,5 +1,6 @@
 import pandas as pd
 import shutil
+import os
 
 # Carpeta Recibidora de Archivos
 carpeta = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Entrada Datos'
@@ -73,6 +74,12 @@ def move_file(archivo_a_mover):
     try:
         shutil.move(archivo_a_mover, carpeta_analizados)
         print("Archivo movido con EXITO!")
+
+    except FileExistsError:
+        try:
+            os.remove(archivo_a_mover)
+            print("")
+
     except Exception as e:
         print("1er Error move_file(): ", e)
         try:
