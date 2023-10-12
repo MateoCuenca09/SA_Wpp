@@ -77,9 +77,12 @@ def move_file(archivo_a_mover):
 
     except FileExistsError:
         try:
+            print("Se encontro una copia del archivo: ",archivo_a_mover)
             os.remove(archivo_a_mover)
-            print("")
-
+            print("Archivo Eliminado")
+        except Exception as e:
+            print("Se encontro una copia del archivo: ",archivo_a_mover)
+            print("Error al intentar eliminarlo: ",e)
     except Exception as e:
         print("1er Error move_file(): ", e)
         try:
