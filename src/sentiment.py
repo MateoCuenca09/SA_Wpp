@@ -29,5 +29,5 @@ def mainSent(carpeta,archivo):
     guardar(df_completo)
 
     # Movemos de Carpeta el ya analizado
-    move_file(archivo_completo)
+    move_file(archivo)
     
