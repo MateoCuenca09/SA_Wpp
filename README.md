@@ -1,8 +1,11 @@
 # SA_Wpp
 
-Este proyecto es una herramienta que permite analizar sentimentalmente conversaciones almacenadas en un archivo de texto y luego guardar los resultados en un archivo Excel (.xlsx). Puede ser útil para comprender cómo se sienten las personas en una conversación o para realizar análisis de datos sentimentales en conjunto.
-
-## Tabla de Contenidos
+Todos sabemos que WhatsApp habilito el desarrollo de Bots para todos! Pero... A que costo? El flujo de conversaciones que puede manejar es bastante gigantesco y si ya tenemos un Bot no queremos contratar humanos para revisarlo... O si, pero, como sabemos si nuestros clientes estan satisfechos con nuestro producto? o nuestra atencion en post venta?
+En esta libreria estamos desarrollando la herramienta definitiva!
+Utilizando un red neuronal pre entrenada, analizamos SENTIMENTALMENTE todas las conversaciones, en varios formatos, para clasificarlas en las categorias que necesitamos!
+En este caso utilizamos Chattigo para descargar las conversaciones, Pandas para manejar los datos en DataFrames, Robert-tuito en español para hacer el analisis y PowerBi para graficar los resultados y poder hacer filtros interactivos para encontrar casos puntuales.
+Puntualmente en este proyecto se busca detectar los clientes insatisfechos o problematicos, entonces los puntajes de las conversaciones se van acumulando por numero de telefono, ademas en el tablero graficamos la conversacion en si para poder ver el problema puntual y adjuntamos el numero de telefono para poder resolverlo puntualmente!
+Sin mas, los dejo con los detalles tecnicos!
 
 - [SA\_Wpp](#sa_wpp)
   - [Tabla de Contenidos](#tabla-de-contenidos)
