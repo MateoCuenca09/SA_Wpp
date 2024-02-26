@@ -1,16 +1,18 @@
 import pandas as pd
 import shutil
 import os
+from dotenv import load_dotenv 
+load_dotenv()
 
 # Carpeta Recibidora de Archivos
-carpeta = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Entrada Datos'
-carpeta_analizados = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Entrada Datos/Procesados' 
+carpeta = os.getenv("carpeta")
+carpeta_analizados = os.getenv("carpeta_analizados")
 
 # Archivo Activo de PowerBi
-activo_path = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Datos/Activo.xlsx'
+activo_path = os.getenv("activo_path")
 # Archivo Temp y Carpeta
-temp_path = "O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Datos/Temp.xlsx"
-folder_temp_path = 'O:/Gestion y Experiencia del Cliente/5. SERVICIO DE ATENCIÓN AL CLIENTE/11. TRANSFORMACIÓN DIGITAL/ReportesSentiment/Datos/'
+temp_path = os.getenv("temp_path")
+folder_temp_path =os.getenv("folder_temp_path")
 
 def guardar(df):
     try:
