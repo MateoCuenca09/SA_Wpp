@@ -46,7 +46,7 @@ Por las dudas que falle, aqui dejo las versiones de las librerias que yo utilice
 
 ### Especificaciones
 
-- *Carga de Datos*: El programa solo espera recibir un solo archivo .xlsx con formato de Chattigo.
+- *Carga de Datos*: El programa solo espera recibir archivos .xlsx con formato de Chattigo.
   
 - *Almacenacion de Datos*: El programa ira almacenando los distintos archivos que recibe en una carpeta oculta que se encuentra en '/Datos', y los ira separando por mes, dejando conectado al TableroWpp.pbi simplemente el ultimo mes analizado.
   
